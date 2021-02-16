@@ -41,7 +41,7 @@ const AudioPlayer: FC<APProps> = ({ urlPreview }: APProps): JSX.Element => {
   //Pause the song when it gets out of the details :)
   window.onhashchange = () => audioElement.current!.pause();
 
-  //Event that assigns the value to the progressive bar
+  //Event that assigns the value to the progressive bar :)
   if(audioElement.current) {
     audioElement.current!.addEventListener(
       "timeupdate",
