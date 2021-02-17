@@ -10,6 +10,10 @@ import {
     mattBlack 
 } from '../../shared/styles/global-variables';
 
+type CSBprops = {
+    customheight: number;
+}
+
 export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -34,6 +38,7 @@ export const DetailsHeader = styled.div`
     flex-direction: column;
     align-items: center;
     width: 90%;
+    height: min-content;
     @media (min-width: 1280px) {
         width: 36%;
         margin-right: 3rem;
@@ -57,7 +62,7 @@ export const PreviewInfo = styled.span`
 
 export const DetailsInfo = styled.div`
     width: 90%;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     @media (min-width: 1280px) {
         width: 40%;
     };
@@ -83,12 +88,11 @@ export const DetailsLyrics = styled.span`
 `;
 
 export const CustomScrollbar = styled(Scrollbar)`
+    margin: 0 !important;
     width: 100% !important;
-    height: 29.5vh !important;
-    marginBottom: 1rem !important; 
-    borderRadius: 3px !important;
-    @media (min-width: 1440px) {
-        height: 59vh !important;
+    height: 30vh !important;
+    @media (min-width: 1280px) {
+        height: ${(props: CSBprops) => props.customheight}px !important;   
     }
 `;
 

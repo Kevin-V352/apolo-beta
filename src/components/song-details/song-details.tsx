@@ -1,5 +1,5 @@
 /* <---React---> */
-import React, { useState ,useEffect, useContext, FC } from "react";
+import React, { useState ,useEffect, useContext, useRef,  FC } from "react";
 
 /* <---Axios---> */
 import axios from 'axios';
@@ -47,9 +47,14 @@ interface SDProps {
 
 const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
 
+  const { state } = useContext(AppContext) as ContextDefaultValue;
+
+  const imgElement = useRef<HTMLImageElement>(null);
+  const infoElement = useRef<HTMLDivElement>(null);
+
   const [songDetails, setSongDetails] = useState<Song>();
   const [lyrics, setLyrics] = useState<string>();
-  const { state } = useContext(AppContext) as ContextDefaultValue;
+  const [height, setHeight] = useState<number>(0);
 
   const getSong = (songId: string, token: string) => {
     axios(`https://api.spotify.com/v1/tracks/${songId}`, {
@@ -60,6 +65,7 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
         const { name, artists }: Song = response.data;
         axios.get(`https://api.lyrics.ovh/v1/${artists[0].name}/${name}`)
         .then(lyric => {
+          calcHeight();
           setLyrics(lyric.data.lyrics);
         });
     });
@@ -95,6 +101,19 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
     return hola;
   };
 
+  const calcHeight = () => {
+    if(!imgElement || !infoElement) return null;
+    const imgHeight = imgElement.current!.clientHeight;
+    const infoHeight = infoElement.current!.clientHeight;
+    setHeight(imgHeight - infoHeight);
+  };
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth >= 1280) {
+      calcHeight(); 
+    };
+  })
+
   useEffect(() => {
     if(state.token === '') {
       setTimeout(() => {
@@ -103,7 +122,7 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
     }
     else {
       getSong(songId, state.token);
-    }
+    } 
   }, []);
 
   return (
@@ -112,7 +131,7 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
         songDetails ?
         <>
           <DetailsHeader>
-            <DetailsImg src={songDetails.album.images[0].url} /> 
+            <DetailsImg src={songDetails.album.images[0].url} ref={imgElement}/> 
             {
               songDetails.preview_url ? 
                 <AudioPlayer urlPreview={songDetails.preview_url}/>  
@@ -121,14 +140,16 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
             }  
           </DetailsHeader> 
           <DetailsInfo> 
-            <DetailsTitle>{songDetails.name}</DetailsTitle>
-            <DetailsSubtitle>Álbum: {songDetails.album.name}</DetailsSubtitle>
-            <DetailsSubtitle>Artistas: {orderArtists(songDetails.artists)}</DetailsSubtitle>
-            <DetailsSubtitle>Fecha de lanzamiento: {dateFormat(songDetails.album.release_date)}</DetailsSubtitle>
-            <DetailsSubtitle>Duración: {trackDuration(songDetails.duration_ms)}</DetailsSubtitle>
+            <div ref={infoElement}>
+              <DetailsTitle>{songDetails.name}</DetailsTitle>
+              <DetailsSubtitle>Álbum: {songDetails.album.name}</DetailsSubtitle>
+              <DetailsSubtitle>Artistas: {orderArtists(songDetails.artists)}</DetailsSubtitle>
+              <DetailsSubtitle>Fecha de lanzamiento: {dateFormat(songDetails.album.release_date)}</DetailsSubtitle>
+              <DetailsSubtitle>Duración: {trackDuration(songDetails.duration_ms)}</DetailsSubtitle>
+              <DetailsSubtitle style={{marginBottom: 0}}>Letra: {lyrics === '' ? 'No disponible' : null}</DetailsSubtitle>
+            </div>
             {
               lyrics === null || lyrics === undefined ?
-              <DetailsSubtitle>Letra: 
                 <Loader 
                   type='Bars'
                   color={lightBlue}
@@ -136,19 +157,15 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
                   width={40}
                   timeout={100000}
                 />
-              </DetailsSubtitle>
               :
-              lyrics === '' ?
-              <DetailsSubtitle>Letra: No disponible</DetailsSubtitle>
-              :
-              <>
-              <DetailsSubtitle>Letra:</DetailsSubtitle>
-              <CustomScrollbar>
+              lyrics !== '' ?
+              <CustomScrollbar customheight={height}>
                 <DetailsLyrics>
                   {parse(`${letterSeparator(lyrics)}`)}
                 </DetailsLyrics>
               </CustomScrollbar>
-              </>
+              :
+              null 
             }   
           </DetailsInfo>
         </>
@@ -162,7 +179,7 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
             timeout={100000}
           />
         </LoaderContainer>
-      }  
+      }
     </DetailsContainer>
   );
 };
