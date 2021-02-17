@@ -11,6 +11,7 @@ export const ResultsContainer = styled.div`
     margin-top: 1rem;
     display: grid;
     justify-items: center;
+    grid-template-columns: 100%;
     @media (min-width: 600px) {
         grid-template-columns: repeat(2, 50%);
     };
