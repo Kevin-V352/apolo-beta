@@ -97,14 +97,13 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
 
   const letterSeparator = (lyrics: string | undefined) => {
     if(!lyrics) return null;
-    const hola = lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
-    return hola;
+    return lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
   };
 
   const calcHeight = () => {
-    if(!imgElement || !infoElement) return null;
-    const imgHeight = imgElement.current!.clientHeight;
-    const infoHeight = infoElement.current!.clientHeight;
+    if(!imgElement.current || !infoElement.current) return null;
+    const imgHeight = imgElement.current?.clientHeight;
+    const infoHeight = infoElement.current?.clientHeight;
     setHeight(imgHeight - infoHeight);
   };
 

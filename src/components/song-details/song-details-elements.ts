@@ -12,7 +12,7 @@ import {
 
 type CSBprops = {
     customheight: number;
-}
+};
 
 export const DetailsContainer = styled.div`
     display: flex;
@@ -22,7 +22,7 @@ export const DetailsContainer = styled.div`
         flex-direction: row;
         justify-content: center;
         align-items: inherit;     
-    }
+    };
 `;
 
 export const LoaderContainer = styled.div`
@@ -39,13 +39,13 @@ export const DetailsHeader = styled.div`
     align-items: center;
     width: 90%;
     height: min-content;
-    @media (min-width: 1280px) {
+    @media (min-width: 1275px) {
         width: 36%;
         margin-right: 3rem;
-    }
+    };
     @media (min-width: 1440px) {
         width: 48%;
-    }  
+    };
 `;
 
 export const DetailsImg = styled.img`
@@ -63,7 +63,7 @@ export const PreviewInfo = styled.span`
 export const DetailsInfo = styled.div`
     width: 90%;
     padding-bottom: 1rem;
-    @media (min-width: 1280px) {
+    @media (min-width: 1275px) {
         width: 40%;
     };
 `;
@@ -76,7 +76,7 @@ export const DetailsTitle = styled.h1`
         background-color: rgba(0, 0, 0, .6);
         border-radius: 5px;
         margin: 0;    
-    }
+    };
 `;
 
 export const DetailsSubtitle = styled.h3`
@@ -93,7 +93,7 @@ export const CustomScrollbar = styled(Scrollbar)`
     height: 30vh !important;
     @media (min-width: 1280px) {
         height: ${(props: CSBprops) => props.customheight}px !important;   
-    }
+    };
 `;
 
 
