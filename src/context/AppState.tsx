@@ -58,7 +58,7 @@ const AppState: FC = (props): JSX.Element => {
 
         const formatQuery: string = encodeURI(query).replace(/%20/g, '+');
 
-        axios(`https://api.spotify.com/v1/search?query=${formatQuery}&offset=0&limit=20&type=track`, {
+        axios(`https://api.spotify.com/v1/search?query=${formatQuery}&offset=0&limit=50&type=track`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
         })

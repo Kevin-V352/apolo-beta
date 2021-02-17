@@ -59,10 +59,7 @@ export const DetailsInfo = styled.div`
     width: 90%;
     @media (min-width: 1280px) {
         width: 40%;
-    }
-    @media (min-width: 1440px) {
-        width: 40%;
-    } 
+    };
 `;
 
 export const DetailsTitle = styled.h1`
@@ -86,7 +83,7 @@ export const DetailsLyrics = styled.span`
 
 export const CustomScrollbar = styled(Scrollbar)`
     width: 100% !important;
-    height: 30vh !important;
+    height: 29.5vh !important;
     marginBottom: 1rem !important; 
     borderRadius: 3px !important;
     @media (min-width: 1440px) {
