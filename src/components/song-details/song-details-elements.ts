@@ -57,6 +57,7 @@ export const PreviewInfo = styled.span`
 
 export const DetailsInfo = styled.div`
     width: 90%;
+    margin-bottom: 1rem;
     @media (min-width: 1280px) {
         width: 40%;
     };
