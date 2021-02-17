@@ -14,18 +14,11 @@ export const LinkContainer = styled(Link)`
     text-decoration: none;
     width: 90%;
     transition: all .2s ease-in-out;
-    @media (min-width: 600px) {
-        width: 45%;
-    }
-    @media (min-width: 900px) {
-        width: 30%;
-    }
     @media (min-width: 1280px) {
-        width: 23%;
         &:hover {
             transform: scale( 1.05 );
-        }
-    }
+        };
+    };
 `;
 
 export const CardContainer = styled.div`

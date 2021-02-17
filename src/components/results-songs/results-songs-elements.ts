@@ -9,13 +9,21 @@ import {
 
 export const ResultsContainer = styled.div`
     margin-top: 1rem;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    justify-items: center;
+    @media (min-width: 600px) {
+        grid-template-columns: repeat(2, 50%);
+    };
+    @media (min-width: 900px) {
+        grid-template-columns: repeat(3, 33.3%);
+    };
+    @media (min-width: 1280px) {
+        grid-template-columns: repeat(4, 25%);  
+    };
 `;
 
 export const StartContainer = styled.div`
-    width: 90%;
+    width: 100%;
 `;  
 
 export const StartTitle = styled.h1`

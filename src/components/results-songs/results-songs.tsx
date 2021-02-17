@@ -27,21 +27,23 @@ const ResultsSongs: FC = (): JSX.Element => {
 
   return (
     <>
+    {
+      state.songList.length !== 0 ?
       <ResultsContainer>
         {
-          state.songList.length !== 0 ? 
-            state.songList.map((song: Song, i: number) => (
-              <ResultLetter key={i} song={song}/>
-            ))
-            :
-            <StartContainer>
+          state.songList.map((song: Song, i: number) => (
+            <ResultLetter key={i} song={song}/>
+          ))
+        }    
+      </ResultsContainer>
+      :
+      <StartContainer>
               <StartTitle>APOLO</StartTitle>
               <StartSubtitle>
                 {state.search ? 'Hmm, sin resultados...' : 'Busca tus canciones favoritas'}
               </StartSubtitle>
-            </StartContainer>  
-        }    
-      </ResultsContainer>
+      </StartContainer>
+    } 
     </>
   );
 };
