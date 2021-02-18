@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './container/App';
-import AppState from './context/AppState';
+import AppState from './context/app-state';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 

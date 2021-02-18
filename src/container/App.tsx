@@ -1,14 +1,14 @@
 /* <---React---> */
-import React, { useState, useEffect, FC, useContext } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 
 /* <---Interfaces---> */
-import { Song, ContextDefaultValue } from '../shared/interfaces/globalInterfaces';
+import { ContextDefaultValue } from '../shared/interfaces/global-interfaces';
 
 /* <---Routing---> */
 import { Route } from 'react-router-dom';
 
 /* <---Contex---> */
-import AppContex from '../context/AppContex';
+import AppContex from '../context/app-contex';
 
 /* <---Components---> */
 import SearchBar from '../components/search-bar/search-bar';
@@ -16,7 +16,7 @@ import ResultSongs from '../components/results-songs/results-songs';
 import SongDetails from '../components/song-details/song-details';
 
 /* <---Global styles---> */
-import GlobalStyles from '../shared/styles/GlobalStyles';
+import GlobalStyles from '../shared/styles/global-styles';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import 'react-toastify/dist/ReactToastify.css';
 

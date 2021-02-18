@@ -12,7 +12,7 @@ import {
 } from "./search-bar-elements";
 
 /* <---Interfaces---> */
-import { ContextDefaultValue } from '../../shared/interfaces/globalInterfaces';
+import { ContextDefaultValue } from '../../shared/interfaces/global-interfaces';
 
 /* <---Routing---> */
 import { 
@@ -21,7 +21,7 @@ import {
 } from 'react-router-dom';
 
 /* <---Contex---> */
-import AppContex from '../../context/AppContex';
+import AppContex from '../../context/app-contex';
 
 /* <---Toast notification---> */
 import { toast } from 'react-toastify';

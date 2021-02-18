@@ -23,10 +23,10 @@ import {
   Song, 
   Artist, 
   ContextDefaultValue 
-} from "../../shared/interfaces/globalInterfaces";
+} from "../../shared/interfaces/global-interfaces";
 
 /* <---Contex---> */
-import AppContext from "../../context/AppContex";
+import AppContext from "../../context/app-contex";
 
 /* <---Components---> */
 import AudioPlayer from '../audio-player/audio-player';

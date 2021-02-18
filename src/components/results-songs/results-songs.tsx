@@ -13,10 +13,10 @@ import {
 import { 
   Song, 
   ContextDefaultValue 
-} from "../../shared/interfaces/globalInterfaces";
+} from "../../shared/interfaces/global-interfaces";
 
 /* <---Contex---> */
-import AppContex from '../../context/AppContex';
+import AppContex from '../../context/app-contex';
 
 /* <---Components---> */
 import ResultLetter from '../result-letter/result-letter';

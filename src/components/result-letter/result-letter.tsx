@@ -12,7 +12,7 @@ import {
 } from "./result-letter-elements";
 
 /* <---Interfaces---> */
-import { Song } from "../../shared/interfaces/globalInterfaces";
+import { Song } from "../../shared/interfaces/global-interfaces";
 
 /* <---Props interface---> */
 interface RLProps {
