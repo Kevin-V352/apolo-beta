@@ -64,13 +64,15 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
         setSongDetails(response.data);
         const { name, artists }: Song = response.data;
         axios.get(`https://api.lyrics.ovh/v1/${artists[0].name}/${name}`,{
-          timeout: 7000
+          timeout: 10000
         })
         .then(lyric => {
           calcHeight();
           setLyrics(lyric.data.lyrics);
         })
-        .catch(() => setLyrics(''));
+        .catch(() => {
+          setLyrics('')
+        });
     });
   };
   
@@ -153,11 +155,11 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
             {
               lyrics === null || lyrics === undefined ?
                 <Loader 
+                  visible={true}
                   type='Bars'
                   color={lightBlue}
                   height={40}
                   width={40}
-                  timeout={100000}
                 />
               :
               lyrics !== '' ?
@@ -174,11 +176,11 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
         :
         <LoaderContainer>
           <Loader 
+            visible={true}
             type='Oval'
             color={lightBlue}
             height={100}
             width={100}
-            timeout={100000}
           />
         </LoaderContainer>
       }
