@@ -63,11 +63,14 @@ const SongDetails: FC<SDProps> = ({ songId }: SDProps): JSX.Element => {
     }).then((response) => {
         setSongDetails(response.data);
         const { name, artists }: Song = response.data;
-        axios.get(`https://api.lyrics.ovh/v1/${artists[0].name}/${name}`)
+        axios.get(`https://api.lyrics.ovh/v1/${artists[0].name}/${name}`,{
+          timeout: 7000
+        })
         .then(lyric => {
           calcHeight();
           setLyrics(lyric.data.lyrics);
-        });
+        })
+        .catch(() => setLyrics(''));
     });
   };
   
