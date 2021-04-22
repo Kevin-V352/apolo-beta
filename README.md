@@ -1,6 +1,13 @@
 # Apolo
 Aplicación para buscar canciones.
 
+## Capturas
+
+![1](https://i.ibb.co/JqGTYrv/1.png)
+![2](https://i.ibb.co/dkDwh9b/2.png)
+![3](https://i.ibb.co/nzcFm9B/3.png)
+![4](https://i.ibb.co/4g0ctyH/4.png)
+
 ## Instalación
 Para instalar el proyecto descargue y abra en su editor de código, o bien desde la consola de preferencia y ejecute el comando **`npm install`**. Esto comenzara a instalar todas las dependencias necesarias para correr el proyecto.
 
@@ -10,3 +17,6 @@ Para instalar el proyecto descargue y abra en su editor de código, o bien desde
 
 ## Ejecutar
 Para hacerlo utilice el comando **`npm start`**, esto ejecutara el proyecto automáticamente en su navegador predeterminado, en el siguiente enlace: http://localhost:3000/.
+
+## Live demo 
+https://apolo-kev357.herokuapp.com/
