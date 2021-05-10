@@ -8,8 +8,10 @@ Un buscador de canciones que utiliza la [API de Spotify](https://developer.spoti
 Los videos en modo ventana se reproducen en calidad baja (360p), recomiendo ponerlos en pantalla completa para verlos en 720p o bien ajustar la calidad manualmente. 
 [![apolo-yt](https://i.ibb.co/0CPfth7/apolo-yt.png)](https://drive.google.com/file/d/1nA2AtV3LSzcH7RouyZo5MpNO267axh4e/view?usp=sharing)
 
-## Tecnologías
+## Live demo
+https://apolo-kev357.herokuapp.com
 
+## Tecnologías
 - ![10](https://i.ibb.co/hXmqN5t/typescript.png) TypeScript
 - ![11](https://i.ibb.co/7Yb8sZf/react.png) React.JS
 - ![12](https://i.ibb.co/fNzydrw/sc.png) Styled Components
