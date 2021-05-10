@@ -4,6 +4,8 @@ Un buscador de canciones que utiliza la [API de Spotify](https://developer.spoti
 ![2](https://i.ibb.co/YTDp7cd/responsive-apolo.png)
 
 ## Video de presentación
+#### **`¡IMPORTANTE!`**
+Los videos en modo ventana se reproducen en calidad baja (360p), recomiendo ponerlos en pantalla completa para verlos en 720p o bien ajustar la calidad manualmente. 
 [![apolo-yt](https://i.ibb.co/0CPfth7/apolo-yt.png)](https://drive.google.com/file/d/1nA2AtV3LSzcH7RouyZo5MpNO267axh4e/view?usp=sharing)
 
 ## Tecnologías
@@ -26,6 +28,3 @@ Para instalar el proyecto descargue y abra en su editor de código, o bien desde
 
 ## Ejecutar
 Para hacerlo utilice el comando **`npm start`**, esto ejecutara el proyecto automáticamente en su navegador predeterminado, en el siguiente enlace: http://localhost:3000/.
-
-## Live demo 
-https://apolo-kev357.herokuapp.com/
